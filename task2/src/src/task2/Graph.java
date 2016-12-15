@@ -14,11 +14,11 @@ public class Graph {
         this.vertices = new TreeSet<>(new VertexComparator());
     }
 
-    public void addVertex(Vertex vertex){
+    public void addVertex(Vertex vertex) {
         vertices.add(vertex);
     }
 
-    public void addEdge(int id1, int id2){
+    public void addEdge(int id1, int id2) {
         Vertex v1 = this.vertices.stream().filter(vertex -> vertex.getId() == id1).findFirst().get();
         Vertex v2 = this.vertices.stream().filter(vertex -> vertex.getId() == id2).findFirst().get();
         v1.addConnection(v2);
@@ -35,12 +35,10 @@ public class Graph {
             laplasian.put(v1, new TreeMap<>(new VertexComparator()));
             for (Vertex v2 : vertices) {
                 if (v1.equals(v2)) {
-                    laplasian.get(v1).put(v1, (float)v1.getDegree());
-                }
-                else if (v1.isConnectedTo(v2)) {
+                    laplasian.get(v1).put(v1, (float) v1.getDegree());
+                } else if (v1.isConnectedTo(v2)) {
                     laplasian.get(v1).put(v2, -1.0f);
-                }
-                else {
+                } else {
                     laplasian.get(v1).put(v2, 0.0f);
                 }
             }
@@ -48,11 +46,11 @@ public class Graph {
         return Gauss.doGauss(laplasian);
     }
 
-    private Set<Vertex> getFixedVertices(){
+    private Set<Vertex> getFixedVertices() {
         return this.vertices.stream().filter(Vertex::isFixed).collect(Collectors.toSet());
     }
 
-    private boolean isTheSamePlane(Set<Vertex> fixedVertices){
+    private boolean isTheSamePlane(Set<Vertex> fixedVertices) {
         boolean flag = false;
         Vertex first = fixedVertices.iterator().next();
         Vertex previous = first;
@@ -69,8 +67,7 @@ public class Graph {
             }
             if (flag) {
                 flag = false;
-            }
-            else {
+            } else {
                 return false;
             }
         }

@@ -9,6 +9,7 @@ import java.util.Set;
 public class Main {
     public static int FIXED_VERTICES_NUMBER = 3;
     public static float[][] FIXED_COORDINATES = {{0.0f, 0.0f}, {1.0f, 0.0f}, {1.0f, 1.0f}};
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Graph g = new Graph();

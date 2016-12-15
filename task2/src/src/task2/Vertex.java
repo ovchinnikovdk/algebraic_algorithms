@@ -43,15 +43,15 @@ public class Vertex {
         this.y = y;
     }
 
-    public void addConnection(Vertex vertex){
+    public void addConnection(Vertex vertex) {
         this.connections.add(vertex);
     }
 
-    public int getDegree(){
+    public int getDegree() {
         return this.connections.size();
     }
 
-    public boolean isConnectedTo(Vertex vertex){
+    public boolean isConnectedTo(Vertex vertex) {
         return this.connections.contains(vertex);
     }
 

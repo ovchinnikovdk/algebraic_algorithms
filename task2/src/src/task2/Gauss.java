@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
  */
 public class Gauss {
     public static float EPSILON = 0.0001f;
-    public static Set<Vertex> doGauss(Map<Vertex, Map<Vertex, Float>> matrix){
+
+    public static Set<Vertex> doGauss(Map<Vertex, Map<Vertex, Float>> matrix) {
         Set<Vertex> result = new TreeSet<>(new VertexComparator());
         Map<Vertex, Map<Vertex, Float>> subMatrix = new TreeMap<>(new VertexComparator());
         matrix.entrySet().stream().filter(entry -> !entry.getKey().isFixed()).forEach(entry -> {
